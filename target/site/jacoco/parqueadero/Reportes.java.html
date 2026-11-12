@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Reportes.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">parcial-parqueadero</a> &gt; <a href="index.source.html" class="el_package">parqueadero</a> &gt; <span class="el_source">Reportes.java</span></div><h1>Reportes.java</h1><pre class="source lang-java linenums">package parqueadero;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+<span class="fc" id="L8">public class Reportes {</span>
+
+    static final int tarifaCarro = 3000;
+
+    public Map&lt;String, Integer&gt; resumen(List&lt;Registro&gt; registros) {
+<span class="fc" id="L13">        Map&lt;String, Integer&gt; r = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L14">        r.put(&quot;carro&quot;, 0);</span>
+<span class="fc" id="L15">        r.put(&quot;moto&quot;, 0);</span>
+<span class="fc" id="L16">        r.put(&quot;total_recaudado&quot;, 0);</span>
+<span class="fc" id="L17">        int temporal = 0;</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        for (Registro reg : registros) {</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">            if (reg.tipo().equals(&quot;carro&quot;)) {</span>
+<span class="fc" id="L20">                r.put(&quot;carro&quot;, r.get(&quot;carro&quot;) + 1);</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">                if (reg.minutos() &gt; 15) {</span>
+<span class="fc" id="L22">                    int v = (int) Math.ceil(reg.minutos() / 60.0) * tarifaCarro;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">                    if (v &gt; 25000) v = 25000;</span>
+<span class="fc" id="L24">                    r.put(&quot;total_recaudado&quot;, r.get(&quot;total_recaudado&quot;) + v);</span>
+<span class="fc" id="L25">                }</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">            } else if (reg.tipo().equals(&quot;moto&quot;)) {</span>
+<span class="fc" id="L27">                r.put(&quot;moto&quot;, r.get(&quot;moto&quot;) + 1);</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">                if (reg.minutos() &gt; 15) {</span>
+<span class="fc" id="L29">                    int v = (int) Math.ceil(reg.minutos() / 60.0) * 1500;</span>
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">                    if (v &gt; 12000) v = 12000;</span>
+<span class="fc" id="L31">                    r.put(&quot;total_recaudado&quot;, r.get(&quot;total_recaudado&quot;) + v);</span>
+                }
+            }
+<span class="fc" id="L34">        }</span>
+<span class="fc" id="L35">        return r;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

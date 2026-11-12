@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="13.3.0">
+<file name="C:\Users\Juan Diego\Downloads\parcial2-pruebas-Lopez\src\main\java\parqueadero\CalculadoraTarifas.java">
+</file>
+<file name="C:\Users\Juan Diego\Downloads\parcial2-pruebas-Lopez\src\main\java\parqueadero\Registro.java">
+</file>
+<file name="C:\Users\Juan Diego\Downloads\parcial2-pruebas-Lopez\src\main\java\parqueadero\Reportes.java">
+<error line="3" column="8" severity="error" message="Importación no usada - java.util.ArrayList." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="10" column="22" severity="error" message="El nombre &apos;tarifaCarro&apos; debe coincidir con el patrón &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
+<error line="12" column="5" severity="error" message="La complejidad ciclomática es 8 (máxima permitida es 5)." source="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck"/>
+<error line="17" column="9" severity="error" message="Variable local con nombre no utilizada &apos;temporal&apos;." source="com.puppycrawl.tools.checkstyle.checks.coding.UnusedLocalVariableCheck"/>
+<error line="23" column="21" severity="error" message="La construcción &apos;if&apos; debe usar &apos;{}&apos; (llaves)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="30" column="21" severity="error" message="La construcción &apos;if&apos; debe usar &apos;{}&apos; (llaves)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+</file>
+<file name="C:\Users\Juan Diego\Downloads\parcial2-pruebas-Lopez\src\test\java\parqueadero\bdd\RunCucumberTest.java">
+</file>
+<file name="C:\Users\Juan Diego\Downloads\parcial2-pruebas-Lopez\src\test\java\parqueadero\unitarias\CalculadoraTarifasTest.java">
+</file>
+<file name="C:\Users\Juan Diego\Downloads\parcial2-pruebas-Lopez\src\test\java\parqueadero\unitarias\ReportesTest.java">
+</file>
+</checkstyle>
