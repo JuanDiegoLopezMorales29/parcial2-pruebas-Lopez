@@ -7,6 +7,12 @@ public class Descuentos {
             throw new IllegalArgumentException("El valor no puede ser negativo");
         }
 
+        if (!"ninguno".equals(tipoCliente)
+                && !"frecuente".equals(tipoCliente)
+                && !"convenio".equals(tipoCliente)) {
+            throw new IllegalArgumentException("Tipo de cliente no válido");
+        }
+
         if ("ninguno".equals(tipoCliente)) {
             return valor;
         }
