@@ -29,4 +29,26 @@ class DescuentosTest {
     void aplicaDescuentoConvenio() {
         assertEquals(20000, descuentos.aplicarDescuento(25000, "convenio"));
     }
+
+    @Test
+    @DisplayName("Redondea hacia abajo al peso entero")
+    void redondeaHaciaAbajo() {
+        assertEquals(1799, descuentos.aplicarDescuento(1999, "frecuente"));
+    }
+
+    @Test
+    @DisplayName("Aplicar un descuento a cero devuelve cero")
+    void admiteValorCero() {
+        assertEquals(0, descuentos.aplicarDescuento(0, "convenio"));
+    }
+
+    @Test
+    @DisplayName("Rechaza un valor negativo")
+    void rechazaValorNegativo() {
+        IllegalArgumentException error = assertThrows(
+                IllegalArgumentException.class,
+                () -> descuentos.aplicarDescuento(-1, "frecuente"));
+
+        assertEquals("El valor no puede ser negativo", error.getMessage());
+    }
 }
