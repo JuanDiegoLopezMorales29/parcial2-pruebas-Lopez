@@ -1,26 +1,24 @@
 package parqueadero;
 
+import java.util.Map;
+
 public class Descuentos {
+
+    private static final Map<String, Integer> PORCENTAJES =
+            Map.of("ninguno", 0, "frecuente", 10, "convenio", 20);
 
     public int aplicarDescuento(int valor, String tipoCliente) {
         if (valor < 0) {
             throw new IllegalArgumentException("El valor no puede ser negativo");
         }
 
-        if (!"ninguno".equals(tipoCliente)
-                && !"frecuente".equals(tipoCliente)
-                && !"convenio".equals(tipoCliente)) {
+        if (!PORCENTAJES.containsKey(tipoCliente)) {
             throw new IllegalArgumentException("Tipo de cliente no válido");
         }
 
-        if ("ninguno".equals(tipoCliente)) {
-            return valor;
-        }
+        int porcentaje = PORCENTAJES.get(tipoCliente);
+        double valorFinal = valor * ((100 - porcentaje) / 100.0);
 
-        if ("convenio".equals(tipoCliente)) {
-            return (int) (valor * 0.80);
-        }
-
-        return (int) (valor * 0.90);
+        return (int) Math.floor(valorFinal);
     }
 }
